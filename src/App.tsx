@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 interface TimeZone {
   id: string
@@ -30,20 +30,11 @@ const COMMON_TIMEZONES: Omit<TimeZone, 'startHour' | 'endHour'>[] = [
 ]
 
 function App() {
-  const [currentTime, setCurrentTime] = useState(new Date())
   const [timeZones, setTimeZones] = useState<TimeZone[]>([
     { id: 'ny', name: 'New York', iana: 'America/New_York' },
     { id: 'london', name: 'London', iana: 'Europe/London' },
     { id: 'tokyo', name: 'Tokyo', iana: 'Asia/Tokyo' }
   ])
-
-  // Update time every minute
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 60000)
-    return () => clearInterval(timer)
-  }, [])
 
   const addTimeZone = (tzData: TimeZone) => {
     if (!timeZones.find(tz => tz.id === tzData.id)) {
