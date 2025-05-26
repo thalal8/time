@@ -104,24 +104,26 @@
     overflow-x: auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    touch-action: pan-y pan-x;
-    overscroll-behavior: contain;
-    -webkit-overscroll-behavior: contain;
+    touch-action: auto;
+    overscroll-behavior-y: contain;
+    -webkit-overscroll-behavior-y: contain;
   }
   
   /* Mobile specific table fixes */
   @media (max-width: 768px) {
     .table-container {
-      touch-action: pan-y;
-      overscroll-behavior-x: none;
-      overscroll-behavior-y: auto;
-      -webkit-overscroll-behavior-x: none;
-      -webkit-overscroll-behavior-y: auto;
+      touch-action: auto;
+      overscroll-behavior-x: auto;
+      overscroll-behavior-y: contain;
+      -webkit-overscroll-behavior-x: auto;
+      -webkit-overscroll-behavior-y: contain;
     }
     
     body {
       overscroll-behavior-x: none;
       -webkit-overscroll-behavior-x: none;
+      overscroll-behavior-y: auto;
+      -webkit-overscroll-behavior-y: auto;
     }
     
     html {
