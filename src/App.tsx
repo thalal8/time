@@ -75,7 +75,7 @@ function App() {
                 e.target.value = ''; // Reset selection
               }
             }}
-            className="timezone-button w-[100vw] px-4 py-3 h-[64px] text-base leading-6 uppercase border-none transition-colors text-center appearance-none"
+            className="timezone-button w-[100vw] px-4 py-3 h-[64px] text-base leading-6 uppercase border-none text-center appearance-none"
             defaultValue=""
           >
             <option value="" disabled>
