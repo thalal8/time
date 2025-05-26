@@ -33,7 +33,7 @@ function App() {
   const [timeZones, setTimeZones] = useState<TimeZone[]>([
     { id: 'ny', name: 'New York', iana: 'America/New_York' },
     { id: 'london', name: 'London', iana: 'Europe/London' },
-    { id: 'tokyo', name: 'Tokyo', iana: 'Asia/Tokyo' }
+    { id: 'sydney', name: 'Sydney', iana: 'Australia/Sydney' }
   ])
 
   const addTimeZone = (tzData: TimeZone) => {
@@ -63,7 +63,7 @@ function App() {
   return (
     <div className="min-h-screen text-white p-6">
       {/* Fixed Add Zone Controls */}
-      <div className="fixed top-0 left-0 right-0 z-50">
+      <div className={timeZones.length === 0 ? "fixed inset-0 z-50" : "fixed top-0 left-0 right-0 z-50"}>
         <div className="relative">
           <select
             onChange={(e) => {
@@ -75,7 +75,10 @@ function App() {
                 e.target.value = ''; // Reset selection
               }
             }}
-            className="timezone-button w-[100vw] px-4 py-3 h-[64px] text-base leading-6 uppercase border-none text-center appearance-none"
+            className={timeZones.length === 0 
+              ? "timezone-button-fullscreen w-full h-full text-base leading-6 uppercase border-none text-center appearance-none" 
+              : "timezone-button w-[100vw] px-4 py-3 h-[64px] text-base leading-6 uppercase border-none text-center appearance-none"
+            }
             defaultValue=""
           >
             <option value="" disabled>
@@ -90,55 +93,57 @@ function App() {
         </div>
       </div>
 
-      <div className="max-w-6xl mx-auto pt-20">
-        {/* Time Grid */}
-        <div className="rounded-lg overflow-hidden">
-          <div className="h-[calc(100vh-64px)] overflow-y-auto table-container">
-            <table className="w-full text-sm border-collapse border-spacing-0 table-fixed">
-              <thead>
-                <tr className="sticky-table-header">
-                  <th className="text-center p-[0px] w-[80px] h-[64px] sticky-table-header">
-                    <div className="flex items-center justify-center w-full h-[64px] border-l border-t border-r border-b border-[#181825]"></div>
-                  </th>
-                  {timeZones.map(zone => (
-                    <th key={zone.id} className="text-center w-[240px] relative group sticky-table-header">  
-                      <div className="flex items-center justify-center w-full h-[64px] border-t border-r border-b border-[#181825]">
-                        <span></span>
-                        <span>{zone.name}</span>
-                        <button
-                          onClick={() => removeTimeZone(zone.id)}
-                          className="remove-button w-[64px] h-[64px] flex items-center justify-center transition-colors hover:bg-red-700"
-                        >
-                          <span className="text-[12px] leading-4">X</span>
-                        </button>
-                      </div>
+      {timeZones.length > 0 && (
+        <div className="max-w-6xl mx-auto pt-20">
+          {/* Time Grid */}
+          <div className="rounded-lg overflow-hidden">
+            <div className="h-[calc(100vh-64px)] overflow-y-auto table-container">
+              <table className="w-full text-sm border-collapse border-spacing-0 table-fixed">
+                <thead>
+                  <tr className="sticky-table-header">
+                    <th className="text-center p-[0px] w-[80px] h-[64px] sticky-table-header">
+                      <div className="flex items-center justify-center w-full h-[64px] border-l border-t border-r border-b border-[#181825]"></div>
                     </th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {hours.map((hour, index) => (
-                  <tr key={hour} className={`border-b border-[#181825] h-[64px] ${index === 0 ? '' : 'border-t border-[#181825]'}`}>
-                    <td className="py-2 px-3 font-mono w-[80px] border-l border-r border-[#181825] text-center bg-[#0A0A0F]">
-                      {hour.toString().padStart(2, '0')}:00
-                    </td>
-                    {timeZones.map(zone => {
-                      return (
-                        <td
-                          key={zone.id}
-                          className="py-2 px-3 text-center font-mono border-r border-[#181825] bg-[#0A0A0F]"
-                        >
-                          {getTimeInZone(hour, zone.iana)}
-                        </td>
-                      )
-                    })}
+                    {timeZones.map(zone => (
+                      <th key={zone.id} className="text-center w-[240px] relative group sticky-table-header">  
+                        <div className="flex items-center justify-center w-full h-[64px] border-t border-r border-b border-[#181825]">
+                          <span></span>
+                          <span>{zone.name}</span>
+                          <button
+                            onClick={() => removeTimeZone(zone.id)}
+                            className="remove-button w-[64px] h-[64px] flex items-center justify-center transition-colors hover:bg-red-700"
+                          >
+                            <span className="text-[12px] leading-4">X</span>
+                          </button>
+                        </div>
+                      </th>
+                    ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {hours.map((hour, index) => (
+                    <tr key={hour} className={`border-b border-[#181825] h-[64px] ${index === 0 ? '' : 'border-t border-[#181825]'}`}>
+                      <td className="py-2 px-3 font-mono w-[80px] border-l border-r border-[#181825] text-center bg-[#0A0A0F]">
+                        {hour.toString().padStart(2, '0')}:00
+                      </td>
+                      {timeZones.map(zone => {
+                        return (
+                          <td
+                            key={zone.id}
+                            className="py-2 px-3 text-center font-mono border-r border-[#181825] bg-[#0A0A0F]"
+                          >
+                            {getTimeInZone(hour, zone.iana)}
+                          </td>
+                        )
+                      })}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }
