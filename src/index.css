@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  
+  body {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.7);
+    font-family: "Geist Mono", Consolas, Monaco, "Courier New", monospace;
+    font-weight: 300;
+    font-size: 14px;
+    box-sizing: border-box !important; 
+
+  }
+  
+  th {
+    font-weight: 300;
+    text-transform: uppercase;
+    padding: 0 !important;
+  }
+
+  .timezone-button {
+    background-color: #121212 !important;
+    border-color: transparent;
+    font-weight: 300;
+    font-size: 14px;
+    font-family: "Geist Mono", Consolas, Monaco, "Courier New", monospace;
+    text-transform: uppercase;
+    //width: 100vw !important;
+    //opacity: 0.7;
+    //transition: opacity 0.3s ease;
+    cursor: pointer !important;
+    outline: none !important;
+    border: none !important;
+  }
+  .timezone-button:hover {
+    background-color: #1C1C1C !important;
+    cursor: pointer !important;
+  }
+  .timezone-button:focus {
+    outline: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  .timezone-menu{
+    background-color: black;
+    padding: 8px;
+    gap:12px;
+
+  }
+  .timezone-menu-item{
+    border-color: transparent;
+    padding: 8px 12px;
+    margin-top: 4px;
+    //border-radius: 12px;
+  }
+  .timezone-menu-item:hover{
+    background-color: #ffffff08 !important;
+  }
+
+  .sticky-header {
+    position: sticky;
+    top: 64px;
+    z-index: 100;
+  }
+
+  /* Ensure sticky positioning works in table */
+  .table-container {
+    position: relative;
+    margin-top: 64px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+  }
+  
+  /* Custom scrollbar styling */
+  .table-container::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+    background: transparent;
+  }
+  
+  .table-container:hover::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .table-container::-webkit-scrollbar-track {
+    background: transparent;
+    border: none;
+    margin: 0;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.24);
+    border-radius: 4px;
+    border: none;
+  }
+  
+  .table-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+  }
+  
+  .table-container::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+  
+  .sticky-table-header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 20 !important;
+    background-color: #121212 !important;
+  }
+  .border-pls {
+    //border: 1px solid #282828 !important;
+  }
+  
+  .sticky-left-cell {
+    position: sticky !important;
+    left: 0 !important;
+    background-color: #121212 !important;
+    border-color: #282828 !important;
+  }
+}
+
+@layer utilities {
+  .bg-gray-750 {
+    background-color: #374151;
+  }
+
+  .remove-button {
+    background-color:transparent;
+    border-color: transparent;
+    position: absolute;
+    right: 0;
+    font-weight: 100;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+
+  .remove-button:hover {
+    opacity: 1;
+    background-color: #1C1C1C;
+  }
+  button {
+    background-color: transparent;
+  }
+}
