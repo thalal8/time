@@ -26,14 +26,16 @@ const COMMON_TIMEZONES: Omit<TimeZone, 'startHour' | 'endHour'>[] = [
   { id: 'sao_paulo', name: 'São Paulo', iana: 'America/Sao_Paulo' },
   { id: 'mexico_city', name: 'Mexico City', iana: 'America/Mexico_City' },
   { id: 'hong_kong', name: 'Hong Kong', iana: 'Asia/Hong_Kong' },
-  { id: 'seoul', name: 'Seoul', iana: 'Asia/Seoul' }
+  { id: 'seoul', name: 'Seoul', iana: 'Asia/Seoul' },
+  { id: 'sri_lanka', name: 'Sri Lanka', iana: 'Asia/Colombo' }
 ]
 
 function App() {
   const [timeZones, setTimeZones] = useState<TimeZone[]>([
     { id: 'ny', name: 'New York', iana: 'America/New_York' },
     { id: 'london', name: 'London', iana: 'Europe/London' },
-    { id: 'sydney', name: 'Sydney', iana: 'Australia/Sydney' }
+    { id: 'sydney', name: 'Sydney', iana: 'Australia/Sydney' },
+    { id: 'sri_lanka', name: 'Sri Lanka', iana: 'Asia/Colombo' }
   ])
 
   const addTimeZone = (tzData: TimeZone) => {
