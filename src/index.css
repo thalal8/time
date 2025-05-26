@@ -40,6 +40,10 @@
     cursor: pointer !important;
     outline: none !important;
     border: none !important;
+    text-align: center !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
   
   .timezone-button:hover {
@@ -136,18 +140,37 @@
   }
 
   .remove-button {
-    background-color: transparent;
-    border-color: transparent;
+    background-color: transparent !important;
+    border-color: transparent !important;
     position: absolute;
     right: 0;
-    font-weight: 100;
+    font-weight: 100 !important;
     opacity: 0.7;
     transition: opacity 0.3s ease;
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-decoration: none !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important;
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
   }
 
   .remove-button:hover {
     opacity: 1;
-    background-color: #1C1C1C;
+    background-color: #1C1C1C !important;
+    color: rgba(255, 255, 255, 1) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 1) !important;
+  }
+  
+  .remove-button:focus {
+    outline: none !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important;
+  }
+  
+  .remove-button:active {
+    color: rgba(255, 255, 255, 0.7) !important;
+    -webkit-text-fill-color: rgba(255, 255, 255, 0.7) !important;
   }
   
   button {
