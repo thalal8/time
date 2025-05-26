@@ -36,7 +36,6 @@ function App() {
     { id: 'london', name: 'London', iana: 'Europe/London' },
     { id: 'tokyo', name: 'Tokyo', iana: 'Asia/Tokyo' }
   ])
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
 
   // Update time every minute
   useEffect(() => {
@@ -50,7 +49,6 @@ function App() {
     if (!timeZones.find(tz => tz.id === tzData.id)) {
       setTimeZones([...timeZones, { ...tzData }])
     }
-    setIsDropdownOpen(false)
   }
 
   const removeTimeZone = (id: string) => {
@@ -66,15 +64,6 @@ function App() {
       minute: '2-digit',
       hour12: false
     }).format(date)
-  }
-
-  const getCurrentTimeInZone = (iana: string) => {
-    return new Intl.DateTimeFormat('en-US', {
-      timeZone: iana,
-      hour: '2-digit',
-      minute: '2-digit',
-      hour12: false
-    }).format(currentTime)
   }
 
   const hours = Array.from({ length: 24 }, (_, i) => i)
