@@ -98,11 +98,11 @@ function App() {
               <thead>
                 <tr className="sticky-table-header">
                   <th className="text-center p-[0px] w-[80px] h-[64px] sticky-table-header">
-                    <div className="flex items-center justify-center w-full h-[64px] border-l border-t border-r border-b border-[#282828]"></div>
+                    <div className="flex items-center justify-center w-full h-[64px] border-l border-t border-r border-b border-[#181825]"></div>
                   </th>
                   {timeZones.map(zone => (
                     <th key={zone.id} className="text-center w-[240px] relative group sticky-table-header">  
-                      <div className="flex items-center justify-center w-full h-[64px] border-t border-r border-b border-[#282828]">
+                      <div className="flex items-center justify-center w-full h-[64px] border-t border-r border-b border-[#181825]">
                         <span></span>
                         <span>{zone.name}</span>
                         <button
@@ -118,15 +118,15 @@ function App() {
               </thead>
               <tbody>
                 {hours.map((hour, index) => (
-                  <tr key={hour} className={`border-b border-[#282828] h-[64px] ${index === 0 ? '' : 'border-t border-[#282828]'}`}>
-                    <td className="py-2 px-3 font-mono w-[80px] border-l border-r border-[#282828] text-center bg-[#121212]">
+                  <tr key={hour} className={`border-b border-[#181825] h-[64px] ${index === 0 ? '' : 'border-t border-[#181825]'}`}>
+                    <td className="py-2 px-3 font-mono w-[80px] border-l border-r border-[#181825] text-center bg-[#0A0A0F]">
                       {hour.toString().padStart(2, '0')}:00
                     </td>
                     {timeZones.map(zone => {
                       return (
                         <td
                           key={zone.id}
-                          className="py-2 px-3 text-center font-mono border-r border-[#282828] bg-[#121212]"
+                          className="py-2 px-3 text-center font-mono border-r border-[#181825] bg-[#0A0A0F]"
                         >
                           {getTimeInZone(hour, zone.iana)}
                         </td>
