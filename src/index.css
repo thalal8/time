@@ -5,6 +5,7 @@
 @layer base {
   html {
     color-scheme: dark;
+    background-color: #121212 !important;
   }
   
   body {
