@@ -5,6 +5,7 @@
 @layer base {
   html {
     color-scheme: dark;
+    overflow-x: hidden;
     background-color: #121212 !important;
   }
   
@@ -14,7 +15,9 @@
     font-family: "Geist Mono", Consolas, Monaco, "Courier New", monospace;
     font-weight: 300;
     font-size: 14px;
-    box-sizing: border-box !important; 
+    box-sizing: border-box !important;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
   
   th {
@@ -26,6 +29,16 @@
   select {
     background-color: #121212 !important;
     font-family: "Geist Mono", Consolas, Monaco, "Courier New", monospace !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    text-align: center !important;
+    text-align-last: center !important;
+    -webkit-text-align-last: center !important;
+    -moz-text-align-last: center !important;
+  }
+  
+  select option {
+    text-align: center !important;
+    background-color: #121212 !important;
     color: rgba(255, 255, 255, 0.7) !important;
   }
   
@@ -41,6 +54,9 @@
     outline: none !important;
     border: none !important;
     text-align: center !important;
+    text-align-last: center !important;
+    -webkit-text-align-last: center !important;
+    -moz-text-align-last: center !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -85,6 +101,33 @@
     margin-top: 64px;
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE/Edge */
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: pan-y pan-x;
+    overscroll-behavior: contain;
+    -webkit-overscroll-behavior: contain;
+  }
+  
+  /* Mobile specific table fixes */
+  @media (max-width: 768px) {
+    .table-container {
+      touch-action: pan-y;
+      overscroll-behavior-x: none;
+      overscroll-behavior-y: auto;
+      -webkit-overscroll-behavior-x: none;
+      -webkit-overscroll-behavior-y: auto;
+    }
+    
+    body {
+      overscroll-behavior-x: none;
+      -webkit-overscroll-behavior-x: none;
+    }
+    
+    html {
+      overscroll-behavior-x: none;
+      -webkit-overscroll-behavior-x: none;
+    }
   }
   
   /* Custom scrollbar styling */
