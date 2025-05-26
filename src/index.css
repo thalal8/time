@@ -45,7 +45,7 @@
   .timezone-button {
     background-color: #121212 !important;
     border-color: transparent !important;
-    font-weight: 300 !important;
+    font-weight: 500 !important;
     font-size: 14px !important;
     font-family: "Geist Mono", Consolas, Monaco, "Courier New", monospace !important;
     text-transform: uppercase !important;
@@ -109,14 +109,61 @@
     -webkit-overscroll-behavior-y: contain;
   }
   
-  /* Mobile specific table fixes */
+  /* Mobile specific styles */
   @media (max-width: 768px) {
+    body {
+      font-size: 12px;
+    }
+    
+    .timezone-button {
+      font-size: 12px !important;
+      height: 48px !important;
+    }
+    
+    select {
+      font-size: 12px !important;
+    }
+    
+    select option {
+      font-size: 12px !important;
+    }
+    
+    table {
+      font-size: 12px !important;
+    }
+    
+    th {
+      font-size: 12px !important;
+      height: 48px !important;
+    }
+    
+    td {
+      font-size: 12px !important;
+    }
+    
+    /* Override table column width for mobile */
+    th.w-\[240px\] {
+      width: 160px !important;
+    }
+    
+    /* Override heights for mobile */
+    .h-\[64px\] {
+      height: 48px !important;
+    }
+    
+    /* Update table container margin for smaller header */
     .table-container {
+      margin-top: 48px;
       touch-action: auto;
       overscroll-behavior-x: auto;
       overscroll-behavior-y: contain;
       -webkit-overscroll-behavior-x: auto;
       -webkit-overscroll-behavior-y: contain;
+    }
+    
+    /* Update viewport calculation for smaller header */
+    .h-\[calc\(100vh-64px\)\] {
+      height: calc(100vh - 48px) !important;
     }
     
     body {
